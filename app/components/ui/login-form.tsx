@@ -45,8 +45,8 @@ export function LoginForm({ onRegisterClick, onClose }: LoginFormProps) {
     await new Promise(resolve => setTimeout(resolve, 1500));
     setIsLoading(false);
     toast({
-      title: "Login Successful",
-      description: "Welcome back!",
+      title: "Login Berhasil", // Indonesian: Login Successful
+      description: "Selamat datang kembali!", // Indonesian: Welcome back!
     });
     router.push('/dashboard');
   };
@@ -54,22 +54,21 @@ export function LoginForm({ onRegisterClick, onClose }: LoginFormProps) {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
       {/* Changed className here to use "form" from globals.css */}
-      <div className="form">
+      <div className="form p-8">
         <button
           onClick={onClose}
           className="absolute top-4 right-4 text-gray-400 hover:text-gray-200 transition-colors" // Kept Tailwind for close button
-          aria-label="Close modal"
+          aria-label="Tutup modal" // Indonesian: Close modal
         >
           <X size={24} />
         </button>
         <div className="text-center"> {/* Kept text-center, or could be part of .title if centered */}
-          <h2 className="title">Login</h2> {/* Used .title class */}
-          <p className="message"> {/* Used .message class */}
-            Welcome back! Please enter your details.
-          </p>
+          <h2 className="title">Masuk</h2> {/* Indonesian: Login / Sign In */}
+        {/* Indonesian: Welcome back! Please enter your details. */}
+        <p className="message text-center mb-4">Masuk atau Daftar sekarang untuk mendapat respons yang lebih pintar lainnya.</p>
         </div>
         {/* The form tag itself doesn't have a specific class in the provided CSS, but its children are styled based on .form parent */}
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6"> {/* space-y-6 might conflict or complement gap:10px from .form */}
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8"> {/* MODIFIED: space-y-6 to space-y-8 for more vertical spacing */}
           
           {/* Email Input with floating label structure */}
           <label>
@@ -80,7 +79,7 @@ export function LoginForm({ onRegisterClick, onClose }: LoginFormProps) {
               placeholder=" " // Important: placeholder with a space for :placeholder-shown
               {...form.register("email")}
             />
-            <span>Email address</span>
+            <span>Alamat Email</span> {/* Indonesian: Email address */}
             {form.formState.errors.email && (
               <p className="mt-1 text-xs text-red-400">{form.formState.errors.email.message}</p>
             )}
@@ -96,12 +95,12 @@ export function LoginForm({ onRegisterClick, onClose }: LoginFormProps) {
               placeholder=" " // Important: placeholder with a space
               {...form.register("password")}
             />
-            <span>Password</span>
+            <span>Kata Sandi</span> {/* Indonesian: Password */}
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
               className="absolute inset-y-0 right-0 flex items-center px-3 text-gray-400 hover:text-gray-200" // Kept Tailwind for icon button
-              aria-label={showPassword ? "Hide password" : "Show password"}
+              aria-label={showPassword ? "Sembunyikan kata sandi" : "Tampilkan kata sandi"} // Indonesian: Hide/Show password
             >
               {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
             </button>
@@ -115,7 +114,7 @@ export function LoginForm({ onRegisterClick, onClose }: LoginFormProps) {
             <div></div> {/* Empty div to keep "Forgot password" on the right if flex justify-between is kept */}
             <div className="text-sm">
               <a href="#" className="font-medium text-blue-500 hover:text-blue-400"> {/* Kept Tailwind for this link */}
-                Forgot your password?
+                Lupa kata sandi?
               </a>
             </div>
           </div>
@@ -130,19 +129,19 @@ export function LoginForm({ onRegisterClick, onClose }: LoginFormProps) {
               {isLoading ? (
                 <>
                   <Loader2 className="mr-2 h-5 w-5 animate-spin" /> {/* Kept loader */}
-                  Processing...
+                  Memproses...
                 </>
               ) : (
-                "Sign In"
+                "Masuk" // Indonesian: Sign In
               )}
             </button>
           </div>
         </form>
         <p className="signin"> {/* Used .signin class */}
-          Don&apos;t have an account?{" "}
+          Belum punya akun?{" "} {/* Indonesian: Don't have an account? */}
           {/* Changed button to a tag to match .signin a CSS */}
           <a onClick={onRegisterClick} href="#" className="font-medium"> {/* Removed text-blue-500 etc. as .signin a will style it */}
-            Sign up
+            Daftar di sini {/* Indonesian: Register / Sign up */}
           </a>
         </p>
       </div>

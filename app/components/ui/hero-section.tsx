@@ -164,7 +164,6 @@ export function HeroSection() {
 const menuItems = [
     { name: 'Features', href: '#link' },
     { name: 'Solution', href: '#link' },
-    { name: 'Pricing', href: '#link' },
     { name: 'About', href: '#link' },
 ]
 
@@ -238,7 +237,7 @@ const HeroHeader = ({ onLoginClick, onRegisterClick }: { onLoginClick: () => voi
                                     size="sm"
                                     className={cn(isScrolled && 'lg:hidden', 'border-blue-600 hover:border-blue-700')}>
                                     <Link href="#" onClick={(e) => { e.preventDefault(); onLoginClick(); }}>
-                                        <span>Login</span>
+                                        <span>Masuk</span>
                                     </Link>
                                 </Button>
                                 <Button
@@ -246,7 +245,7 @@ const HeroHeader = ({ onLoginClick, onRegisterClick }: { onLoginClick: () => voi
                                     size="sm"
                                     className={cn(isScrolled && 'lg:hidden')}>
                                     <Link href="#" onClick={(e) => { e.preventDefault(); onRegisterClick(); }}>
-                                        <span>Sign Up</span>
+                                        <span>Daftar</span>
                                     </Link>
                                 </Button>
                                 <Button
@@ -254,7 +253,7 @@ const HeroHeader = ({ onLoginClick, onRegisterClick }: { onLoginClick: () => voi
                                     size="sm"
                                     className={cn(isScrolled ? 'lg:inline-flex' : 'hidden')}>
                                     <Link href="#">
-                                        <span>Get Started</span>
+                                        <span>Mulai Jelajahi</span>
                                     </Link>
                                 </Button>
                             </div>
